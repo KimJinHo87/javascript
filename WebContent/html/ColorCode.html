@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영림원 색코드 추출</title>
+<style type="text/css">
+.allBody{
+	width: 100%;
+}
+.contentBody{
+	width: 956px;
+	position: relative;
+	margin: 0 auto;
+}
+
+html, body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	min-height: 100%;
+}
+
+.colorView{
+	height: 300px;
+	border: 1px solid black;
+	text-align: center;
+	line-height: 300px;
+	
+}
+
+#colorText{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+input[type="range"]{
+	 writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+}
+
+#conTable{
+	width: 956px;
+}
+
+#conTable td{
+	width: 956px;
+	text-align: center;
+}
+</style>
+
+<script type="text/javascript">
+	function fn_calc(){
+		var v_redVal = document.getElementById('redCon').value;
+		var v_greenVal = document.getElementById('greenCon').value;
+		var v_blueVal = document.getElementById('blueCon').value;
+		
+		document.getElementById('redVal').innerHTML = v_redVal
+		document.getElementById('greenVal').innerHTML = v_greenVal
+		document.getElementById('blueVal').innerHTML = v_blueVal
+		
+		var v_coRedVal = 255 - v_redVal;
+		var v_coGreenVal = 255 - v_greenVal;
+		var v_coBlueVal = 255 - v_blueVal;
+		
+		document.getElementsByClassName('colorView')[0].style.color = "rgba("+v_coGreenVal+","+v_coGreenVal+","+v_coBlueVal+",1)";
+		document.getElementsByClassName('colorView')[0].style.background = "rgba("+v_redVal+","+v_greenVal+","+v_blueVal+",1)";
+		
+		var v_result = parseInt(v_redVal)*256*256 + parseInt(v_greenVal)*256 + parseInt(v_blueVal) - 16777216;
+		
+		document.getElementById('colorText').innerHTML = "영림원 색코드는 "+v_result+" 입니다.";
+		
+	}
+</script>
+</head>
+<body>
+	<div class="allBody">
+		<div class="contentBody">
+			<div class="colorView">
+				<span id="colorText">
+					영림원 색코드는 -1 입니다.
+				</span>
+			</div>
+			<p/>
+			<div class="controlView">
+				<table id="conTable">
+					<colgroup>
+						<col width="33%"/>
+						<col width="33%"/>
+						<col width="*"/>
+					</colgroup>
+					<thead>
+						<tr>
+							<th style="color: red; font-size: 20px; font-weight: bold;">red</th>
+							<th style="color: green; font-size: 20px; font-weight: bold;">green</th>
+							<th style="color: blue; font-size: 20px; font-weight: bold;">blue</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="range" value="255" min="0" max="255" id="redCon" oninput="fn_calc();"/></td>
+							<td><input type="range" value="255" min="0" max="255" id="greenCon" oninput="fn_calc();"/></td>
+							<td><input type="range" value="255" min="0" max="255" id="blueCon" oninput="fn_calc();"/></td>
+						</tr>
+						<tr>
+							<td style="color: red; font-size: 20px; font-weight: bold;" id="redVal">255</td>
+							<td style="color: green; font-size: 20px; font-weight: bold;" id="greenVal">255</td>
+							<td style="color: blue; font-size: 20px; font-weight: bold;" id="blueVal">255</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div style="height: 100px;">
+			</div>
+			* 제작: (주)비엔아이 부설연구소
+			<br/>
+			* 해당 프로그램은 크롬에서만 테스트했습니다.
+			<br/>
+			* 인터넷이 안되는 환경에서도 사용가능합니다.
+			<br/>
+			* 영림원 색코드는 제뉴인이 아닌 다른곳에서 사용 시 원하는 결과와 다른 색상으로 적용될 수 있습니다.
+		</div>
+	</div>
+</body>
+</html>
