@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>입력확인</title>
+<script type="text/javascript">
+	function check()
+	{
+		var vData = document.forms[0].elements[0].value;
+		alert("입력하신 문자는 ["+vData+"] 입니다.");
+	}
+</script>
+</head>
+<body>
+<form name="myForm">
+	<input type="text" name="myText"/>
+	<input type="button" onclick="check();" value="확인"/>
+</form>
+</body>
+</html>
