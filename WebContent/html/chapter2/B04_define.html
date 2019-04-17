@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>버그</title>
+<script type="text/javascript">
+	function test(A)
+	{
+		alert(A);
+		var A;
+	}
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	test(123);
+</script>
+</body>
+</html>
