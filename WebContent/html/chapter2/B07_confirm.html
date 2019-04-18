@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>확인 대화상자 표시</title>
+<script type="text/javascript">
+	function check()
+	{
+		var vName = document.dataForm.yourName.value;
+		return confirm("다음 정보를 보내도 좋습니까? \n" + unescape("%0D%0A") + vName);
+	}
+</script>
+</head>
+<body style="text-align: center;">
+<div>
+	<h1>확인대화상자 표시</h1>
+	<blockquote>
+		아래의 버튼을 누르면 확인대화상자를 표시한다, OK를 선택하면 자동적으로 입력내용이 송신된다.
+	</blockquote>
+</div>
+<form name="dataForm" action="B08_result.html" method="get">
+	이름: <input type="text" name="yourName"><br>
+	<input type="submit" name="sendButton" value="송신" onclick="return check();">
+</form>
+</body>
+</html>

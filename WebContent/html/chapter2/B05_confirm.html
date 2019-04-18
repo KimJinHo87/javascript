@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>확인 대화상자 표시</title>
+<script type="text/javascript">
+	function check()
+	{
+		var vFlag = confirm("당신은 회원입니까?");
+		if(vFlag)
+		{
+			location.href = "B06_result.html";
+		}
+		else
+		{
+			alert("회원이 아닌 분은 볼 수 없습니다.");
+		}
+	}
+</script>
+</head>
+<body style="text-align: center;">
+<div>
+	<h1>확인대화상자 표시</h1>
+	<blockquote>
+		아래의 버튼을 누르면 확인대화상자를 표시한다, OK를 선택하면 회원 페이지로, 그렇지 않으면 경고를 내보낸다.
+	</blockquote>
+</div>
+<form action="">
+	<input type="button" value="회원 페이지로" onclick="check();">
+</form>
+</body>
+</html>
