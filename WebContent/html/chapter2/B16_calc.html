@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>값계산</title>
+<script type="text/javascript">
+	function fn_calc()
+	{
+		try
+		{
+			var vValue1 = eval(document.myForm.Calc1.value);
+			var vValue2 = eval(document.myForm.Calc2.value);
+			
+			var vResult = vValue1 + vValue2;
+			
+			document.myForm.SumVal.value = vResult;
+		}
+		catch(e)
+		{
+			alert("연산중 이상이 발생하였습니다. 값을 다시 확인하세요.");
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="" name="myForm">
+		<input type="text" name="Calc1">+
+		<input type="text" name="Calc2">=
+		<input type="text" name="SumVal" readonly="readonly"><br>
+		<input type="button" value="계산" onClick="return fn_calc();">
+	</form>
+</body>
+</html>
