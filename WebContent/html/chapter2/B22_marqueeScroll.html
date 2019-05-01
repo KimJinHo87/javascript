@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마키 스크롤</title>
+<script type="text/javascript">
+	var vStCnt = 0;								//문자를 표시할 장소
+	var vMsg = "by kimjinho";					//문자
+	var vBlnk = "          ";					//공백
+	var vStr = vBlnk + vBlnk + vBlnk + vMsg;	//실제로 표시할 문자
+	var vTimeID = 10;							//시간 설정
+	var vSpeed = 200;							//문자 이동속도
+	
+	function fn_scroller()
+	{
+		status = vStr.substring(vStCnt++,vStr.length+1);
+		if(vStCnt>vStr.length)
+		{
+			vStCnt = 0;
+		}
+		clearTimeout(vTimeID);
+		vStartInterval = setInterval(function(){
+			fn_showStatus();
+		},1);
+		vTimeID = window.setTimeout("fn_scroller();",vSpeed);
+	}
+</script>
+</head>
+<body onload="fn_scroller();">
+</body>
+</html>
