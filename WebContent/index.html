@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>�ڹٽ�ũ��Ʈ ���ο�</title>
+<meta charset="UTF-8">
+<title>자바스크립트 공부용</title>
 <style type="text/css">
 	body {
 	  font:14px/1.8 Arial, Helvetica, sans-serif;
@@ -28,6 +28,7 @@
 	  color: #fff;
 	  display: inline-block;
 	  padding: 0 8px;
+	  cursor: pointer;
 	}
 	
 	.container {
@@ -42,7 +43,7 @@
 	  margin-right: 0px;
 	  padding-left: 10px;
 	  overflow-y: scroll;
-	  max-height: 600px;
+	  height: 600px;
 	}
 	
 	.nav-list {
@@ -64,6 +65,15 @@
 	
 	.nav-link:hover {
 	  background: #5457de;
+	  cursor: pointer;
+	}
+	
+	.MenuHeader {
+		float: left;
+		width: 690px;
+		margin-left: 30px;
+		margin-right: 20px;
+	  	border-bottom: 1px solid black;
 	}
 	
 	.content {
@@ -71,6 +81,7 @@
 	  width: 690px;
 	  padding-left: 30px;
 	  padding-right: 20px;
+	  padding-top: 10px;
 	}
 	
 	.footer {
@@ -112,8 +123,41 @@
 	
 	.hnav-link:hover {
 	  background: #5457de;
+	  cursor: pointer;
+	}
+	
+	.contentFrame {
+		width: 690px;
+		margin: 0;
+		height: 565px;
 	}
 </style>
+<script type="text/javascript" src="html/js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.nav').load('html/leftMenu_Chapter1.html');
+		$('.logo').on('click',function(){
+			location.reload();
+		});
+		
+		$('.hnav-link').on('click',function(){
+			if($(this).attr('data-link') == "html/leftMenu_Chapter3.html"
+				|| $(this).attr('data-link') == "html/leftMenu_Chapter4.html")
+			{
+				alert("아직 준비중입니다.");
+				return;
+			}
+			
+			$('.nav').load($(this).attr('data-link'));
+		});
+		
+		$(document).on('click','.nav-link',function(){
+			$('.MenuHeader').text($(this).attr('data-text')+' - '+$(this).text());
+			$('.contentFrame').attr('src',$(this).attr('data-link'));
+			//$('.content').load($(this).attr('data-link'));
+		});
+	});
+</script>
 </head>
 <body>
  <div class="frame">
@@ -121,49 +165,24 @@
     <div class="logo">JavaScript Study</div>
     <div class="hnav">
       <ul class="hnav-list">
-        <li class="hnav-item"><a href="" class="hnav-link">Chapter1</a></li>
-        <li class="hnav-item"><a href="" class="hnav-link">Chapter2</a></li>
-        <li class="hnav-item"><a href="" class="hnav-link">Chapter3</a></li>
-        <li class="hnav-item"><a href="" class="hnav-link">Chapter4</a></li>
+        <li class="hnav-item"><div class="hnav-link" data-link="html/leftMenu_Chapter1.html">Chapter1</div></li>
+        <li class="hnav-item"><div class="hnav-link" data-link="html/leftMenu_Chapter2.html">Chapter2</div></li>
+        <li class="hnav-item"><div class="hnav-link" data-link="html/leftMenu_Chapter3.html">Chapter3</div></li>
+        <li class="hnav-item"><div class="hnav-link" data-link="html/leftMenu_Chapter4.html">Chapter4</div></li>
       </ul>
     </div>
   </div>
   <!-- //header -->
   <div class="container">
     <div class="nav">
-      <ul class="nav-list">
-        <li class="nav-item"><a href="" class="nav-link">Menu-1</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-2</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
-      </ul>
     </div>
     <!-- //nav -->
+    <div class="MenuHeader">
+    	초기페이지
+    </div>
     <div class="content">
-      <h1>Hello World</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nam error ipsa commodi exercitationem fugiat praesentium tempore inventore voluptate dolore. Ipsa quisquam nemo enim explicabo aut accusantium ex ab perspiciatis.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nam error ipsa commodi exercitationem fugiat praesentium tempore inventore voluptate dolore. Ipsa quisquam nemo enim explicabo aut accusantium ex ab perspiciatis.
-      </p>
+    	<iframe src="html/welcome.html" class="contentFrame"></iframe>
+    	
     </div>
      </div>
   <!-- //container -->
