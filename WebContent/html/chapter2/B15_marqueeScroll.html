@@ -19,13 +19,11 @@
 			vStCnt = 0;
 		}
 		clearTimeout(vTimeID);
-		vStartInterval = setInterval(function(){
-			fn_showStatus();
-		},1);
 		vTimeID = window.setTimeout("fn_scroller();",vSpeed);
 	}
 </script>
 </head>
 <body onload="fn_scroller();">
+	해당 프로그램은 IE에서 확인가능합니다.
 </body>
 </html>

@@ -3,9 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>JavaScript 동호회에 오신 것을 환영합니다.</title>
+<script type="text/javascript">
+	function init()
+	{
+		var vParameter = location.href.split("?");
+		var vData = vParameter[1].split("&");
+		
+		for(var i=0;i<vData.length;i++)
+		{
+			if(vData[i].split("=")[0] == "yourName")
+			{
+				var vResult = vData[i].split("=")[1];
+				document.getElementsByName("initResult")[0].innerHTML = "<h1>"+vResult+"님 JavaScript 동호회에 오신 것을 환영합니다.</h1>\n이 사이트는 회원제로 운영되며, 회원 이외에는 이용할 수 없습니다.";
+				break;
+			}
+		}	
+	}
+</script>
 </head>
-<body>
-	<div align="center">
+<body onload="init();">
+	<div align="center" name="initResult">
 		<h1> JavaScript 동호회에 오신 것을 환영합니다.</h1>
 		이 사이트는 회원제로 운영되며, 회원 이외에는 이용할 수 없습니다.
 	</div>
