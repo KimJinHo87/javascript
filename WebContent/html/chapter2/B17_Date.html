@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>년월일과 요일표시</title>
+<script type="text/javascript">
+	var vTimeID;
+	var vSpeed = 200;
+	var vAllDay = "일월화수목금토";
+
+	function fn_displayDate()
+	{
+		var vGetDate = new Date();						
+		var vYear = "0" + vGetDate.getYear();			//년
+		var vMonth = "0" + (1+vGetDate.getMonth());		//월
+		var vDate = "0" + vGetDate.getDate();			//일
+		var vDays = vGetDate.getDay();					//요일
+		
+		
+		vYear = vYear.substring(vYear.length-2,vYear.length+1);
+		vMonth = vMonth.substring(vMonth.length-2,vMonth.length+1);
+		vDate = vDate.substring(vDate.length-2,vDate.length+1);
+		var vDayText = vAllDay.substring(vDays,vDays+1)+"요일";
+		
+		status = vYear + "년 " + vMonth + "월 " + vDate + "일 " + vDayText;
+		
+		clearTimeout(vTimeID);
+		vTimeID = window.setTimeout("fn_displayDate();",vSpeed);
+	}
+</script>
+</head>
+<body onload="fn_displayDate();">
+	해당 프로그램은 IE에서 확인가능합니다.
+</body>
+</html>

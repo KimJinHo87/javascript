@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상태표시줄에 시계를 표시</title>
+<script type="text/javascript">
+	function fn_displayTime()
+	{
+		var vTime = new Date();						
+		var vHour = "0" + vTime.getHours();			//시간
+		var vMinutes = "0" + vTime.getMinutes();	//분
+		var vSeconds = "0" + vTime.getSeconds();		//초
+		var vTimeID;
+		var vSpeed = 200;
+		
+		vHour = vHour.substring(vHour.length-2,vHour.length+1);
+		vMinutes = vMinutes.substring(vMinutes.length-2,vMinutes.length+1);
+		vSeconds = vSeconds.substring(vSeconds.length-2,vSeconds.length+1);
+
+		status = "Time " + vHour + " : " + vMinutes + " : " + vSeconds;
+		clearTimeout(vTimeID);
+		vTimeID = window.setTimeout("fn_displayTime();",vSpeed);
+	}
+</script>
+</head>
+<body onload="fn_displayTime();">
+	해당 프로그램은 IE에서 확인가능합니다.
+</body>
+</html>
