@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>서브 창 열기</title>
+<script type="text/javascript">
+	function fn_winOpen()
+	{
+		for(var i=0;i<10;i++)
+		{
+			window.open("B18_popupSub.html", ""+i, "width=360,height=240,dependent=yes");
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<input type="button" value="10개의 팝업을 연다." onclick="fn_winOpen();">
+</body>
+</html>
